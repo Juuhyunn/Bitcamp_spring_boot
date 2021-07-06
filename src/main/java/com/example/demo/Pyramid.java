@@ -1,29 +1,25 @@
 package com.example.demo;
 
 public class Pyramid {
-    public static void main(String[] args){
-         for(int i = 0; i < 5; i++) {
-            int a;
-            int b;
-            for (a = 0; a < 5;a++){
-            System.out.print(".");
-        }
-        System.out.println();
-        for(int j = 10; j > 0; j--) {
+    public static void main(String[] args) {
+        String blank = ".";
+        String star = "*";
+        int num = 5;
+
+            for (int i = num; i > 0; i--) {
+                //System.out.print(a);
+                for (int x = i; x > 0; x--) {
+                    System.out.print(blank);
+                }
+                for (int x = 0 ; x < num - i+1 ; x++) {
+                    System.out.print(star);
+                }
+
+                System.out.println();
 
             }
-         }
 
-         int score = 0;
-         char grade = '';
-         switch (score) {
-             case 90 : //case는 책갈피와 같다.
-                 grade = 'A';
-                 break; // switch문 탈출!
-             case 80 :
-                 grade = 'B';
-                 //여기 break문이 없으면 다음 case도 읽음
-             case 70 :
-                 grade = 'C';
-         }
-}
+        }
+    }
+
+
