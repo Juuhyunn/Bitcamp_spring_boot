@@ -3,12 +3,27 @@ package com.example.demo.lecture.math.domain;
 public class Circle {
     final private double PI = 3.141592;
     private double radius;
+    private double result;
 
     public void setRadius(double radius) {
         this.radius = radius;
     }
     public double getRadius() {
         return radius;
+    }
+    public void setResult(double result) {
+        this.result = result;
+    }
+    public double getResult() {
+        return result;
+    }
+    public void area(double radius) {
+        result = PI*radius*radius;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("반지름이 %f인 원의 넓이는 %f이다.",radius,result);
     }
     /*
     //첫 번째 방법

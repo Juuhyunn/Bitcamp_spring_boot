@@ -1,6 +1,6 @@
 package com.example.demo.lecture.math.controller;
 
-import com.example.demo.practice.Circle;
+import com.example.demo.lecture.math.domain.Circle;
 
 import java.util.Scanner;
 
@@ -8,6 +8,11 @@ public class CircleController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Circle circle = new Circle();
+        System.out.println("원의 반지름을 입력하세요");
+        circle.setRadius(scanner.nextDouble());
+        circle.area(circle.getRadius());
+        System.out.println(circle.toString());
+
 
         /*
         //첫 번째 방법
