@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lecture.tv;
 
 //상속
 class SmartTv extends Object{

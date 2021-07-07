@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lecture;
 
 import com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer;
 import org.yaml.snakeyaml.external.com.google.gdata.util.common.base.Escaper;

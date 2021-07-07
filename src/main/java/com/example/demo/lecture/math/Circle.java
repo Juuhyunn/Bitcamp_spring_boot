@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lecture.math;
 
 public class Circle {
     final double PI = 3.141592;

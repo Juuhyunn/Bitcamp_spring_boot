@@ -1,9 +1,10 @@
-package com.example.demo;
+package com.example.demo.lecture.bank;
 
 //열혈 자바 p.156
 public class BankAccountPO {
     static int balance = 0;
     public static void main(String[] args) {
+
         deposit(10000);
 
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lecture.bank;
 
 class BankAccount {
     String accNumber;

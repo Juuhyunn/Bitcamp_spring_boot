@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lecture.math;
 
 public class Gugudan {
     public static void main(String[] args){
