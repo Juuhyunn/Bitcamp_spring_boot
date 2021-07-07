@@ -1,4 +1,4 @@
-package com.example.demo.lecture.math;
+package com.example.demo.practice;
 
 public class Test {
         public static void main(String[] args) {
