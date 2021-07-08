@@ -3,7 +3,7 @@ package com.example.demo.lecture.math.domain;
 
 import java.util.Scanner;
 
-public class Calc {
+public class CalcDTO {
     private int num3;
     private int num4;
 

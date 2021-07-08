@@ -1,16 +1,15 @@
 
 package com.example.demo.lecture.bank.controller;
 
-import com.example.demo.lecture.bank.domain.BankAccount;
-import com.example.demo.lecture.bank.domain.BankAccountUniID;
+import com.example.demo.lecture.bank.domain.BankAccountUniIDDTO;
 
 import java.util.Scanner;
 
 public class BankAccountUniIDController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BankAccountUniID yoon = new BankAccountUniID();
-        BankAccountUniID park = new BankAccountUniID();
+        BankAccountUniIDDTO yoon = new BankAccountUniIDDTO();
+        BankAccountUniIDDTO park = new BankAccountUniIDDTO();
         System.out.println("계좌 번호를 입력하세요");
         yoon.setAccNumber(scanner.next());
         System.out.println("주민 번호를 입력하세요");

@@ -1,6 +1,6 @@
 package com.example.demo.lecture.math.domain;
 
-public class Calculator {
+public class CalculatorDTO {
     private int num1;
     private int num2;
     private String opcode;
@@ -24,8 +24,10 @@ public class Calculator {
         return opcode;
     }
 
+
+
     @Override
     public String toString() {
-        return String.format("%d + %d = %d",num1,num2,num1+num2);
+        return String.format("%d %s %d = ",num1,opcode,num2);
     }
 }

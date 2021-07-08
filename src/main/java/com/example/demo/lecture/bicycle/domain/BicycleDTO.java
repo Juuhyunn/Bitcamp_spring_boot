@@ -3,7 +3,7 @@ package com.example.demo.lecture.bicycle.domain;
 import java.util.Scanner;
 
 //state (current gear, current pedal cadence, current speed) and behavior (changing gear, changing pedal cadence, applying brakes)
-public class BicycleController {
+public class BicycleDTO {
     private int gear;
     private String company;
     private double speed;

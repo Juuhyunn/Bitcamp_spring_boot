@@ -1,6 +1,6 @@
 package com.example.demo.lecture.dog.domian;
 
-public class Dog { // 중괄호 안은 메모리 영역
+public class DogDTO { // 중괄호 안은 메모리 영역
     //멤버 변수
     //private으로 보안
     private String name;

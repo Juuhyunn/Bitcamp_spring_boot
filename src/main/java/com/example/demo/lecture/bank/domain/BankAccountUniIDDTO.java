@@ -1,6 +1,6 @@
 package com.example.demo.lecture.bank.domain;
 
-public class BankAccountUniID {
+public class BankAccountUniIDDTO {
     private String accNumber;
     private String ssNumber;
     private int amount;

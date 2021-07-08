@@ -1,14 +1,14 @@
 package com.example.demo.lecture.bicycle.controller;
 
 
-import com.example.demo.lecture.bicycle.domain.BicycleController;
+import com.example.demo.lecture.bicycle.domain.BicycleDTO;
 
 import java.util.Scanner;
 
-public class BicycleMain {
+public class BicycleCotroller {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BicycleController bicycle = new BicycleController();
+        BicycleDTO bicycle = new BicycleDTO();
         System.out.println("현재 기어는 몇단입니까?");
         bicycle.setGear(scanner.nextInt());
         System.out.println("자전거 제조사는 어디입니까?");

@@ -1,6 +1,6 @@
 package com.example.demo.lecture.math.domain;
 
-public class Circle {
+public class CircleDTO {
     final private double PI = 3.141592;
     private double radius;
     private double result;
