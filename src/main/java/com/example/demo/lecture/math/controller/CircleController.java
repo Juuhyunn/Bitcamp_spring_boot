@@ -12,8 +12,6 @@ public class CircleController {
         circle.setRadius(scanner.nextDouble());
         circle.area(circle.getRadius());
         System.out.println(circle.toString());
-
-
         /*
         //첫 번째 방법
         Circle circle1 = new Circle();
