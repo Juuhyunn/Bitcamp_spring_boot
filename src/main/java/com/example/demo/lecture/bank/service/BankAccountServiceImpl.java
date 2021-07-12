@@ -12,7 +12,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     public void createAccountNumber(BankAccountDTO bankAccountDTO) {
         this.bankAccountDTO = new BankAccountDTO(); //개인의 계좌가 새로 생기는 것이니까 생성자는 여기서 쓰는 것
         this.random = new Random();
-        String randomNumber = String.format("%d - %d - %d", random.nextInt(), random.nextInt(), random.nextInt());
+        String randomNumber = String.format("%d - %d - %d", random.nextInt(1000), random.nextInt(1000), random.nextInt(100000));
         bankAccountDTO.setAccountNumber(randomNumber);
         System.out.println(randomNumber);
         //bankAccountDTO.setName(bankAccountDTO.getName());
