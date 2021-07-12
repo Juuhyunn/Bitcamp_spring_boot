@@ -1,13 +1,20 @@
 package com.example.demo.lecture.math.controller;
 
+import com.example.demo.lecture.math.domain.CalculatorDTO;
 import com.example.demo.lecture.math.domain.CircleDTO;
 
 import java.util.Scanner;
 
 public class CircleController {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CircleDTO circle = new CircleDTO();
+    private Scanner scanner;
+    private CircleDTO circle;
+
+    public CircleController(){
+        this.scanner = new Scanner(System.in);
+        this.circle = new CircleDTO();
+    }
+
+    public void circle() {
         System.out.println("원의 반지름을 입력하세요");
         circle.setRadius(scanner.nextDouble());
         circle.area(circle.getRadius());

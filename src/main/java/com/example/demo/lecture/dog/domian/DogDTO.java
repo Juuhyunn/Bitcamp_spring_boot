@@ -1,5 +1,8 @@
 package com.example.demo.lecture.dog.domian;
 
+import lombok.Data;
+@Data
+
 public class DogDTO { // 중괄호 안은 메모리 영역
     //멤버 변수
     //private으로 보안
@@ -7,6 +10,8 @@ public class DogDTO { // 중괄호 안은 메모리 영역
     private String color;
     private String breed;
     private String hungry;
+
+    /*
 
     //멤버 함수
     //getter(supplier) 와 setter(consumer) 만들기
@@ -41,6 +46,8 @@ public class DogDTO { // 중괄호 안은 메모리 영역
     public String getHungry() {
         return this.getHungry();
     }
+
+     */
 
     @Override
     public String toString() {

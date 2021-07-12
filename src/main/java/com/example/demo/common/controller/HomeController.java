@@ -1,6 +1,7 @@
 package com.example.demo.common.controller;
 
-import com.example.demo.lecture.bicycle.controller.BicycleCotroller;
+import com.example.demo.lecture.bank.controller.BankAccountController;
+import com.example.demo.lecture.bicycle.controller.BicycleController;
 import com.example.demo.lecture.dog.controller.DogController;
 import com.example.demo.lecture.math.controller.CalculatorController;
 import com.example.demo.lecture.util.controller.UtilController;
@@ -9,15 +10,17 @@ import com.example.demo.lecture.util.domain.UtilDTO;
 import java.util.Scanner;
 
 public class HomeController {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CalculatorController calculatorController = new CalculatorController();
         DogController dogController = new DogController();
-        BicycleCotroller bicycleCotroller = new BicycleCotroller();
+        BicycleController bicycleController = new BicycleController();
         UtilController utilController = new UtilController();
+        BankAccountController bankAccountController = new BankAccountController();
         while (true) {
             System.out.println("\n=====================================================================");
-            System.out.println(" [메뉴] 0. 종료\t1. 계산기\t2. 수열\t3. Dog\t4. Bicycle\t5. 오늘 날짜");
+            System.out.println(" [메뉴] 0. 종료\t1. 계산기\t2. 수열\t3. Dog\t4. Bicycle\t5. 오늘 날짜\t6. 은행");
             System.out.println("=====================================================================");
             switch (scanner.next()) {
                 case "0" :
@@ -37,12 +40,17 @@ public class HomeController {
                     break;
                 case "4" :
                     System.out.println("자전거를 실행합니다.");
-                    bicycleCotroller.bicycle();
+                    bicycleController.bicycle();
                     break;
                 case "5" :
                     System.out.println("날짜를 실행합니다.");
                     utilController.today();
                     break;
+                case "6" :
+                    System.out.println("은행을 실행합니다.");
+                    bankAccountController.bank();
+                    break;
+
             }
         }
     }

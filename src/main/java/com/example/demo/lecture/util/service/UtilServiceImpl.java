@@ -6,7 +6,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class UtilServiceImpl implements UtilService{
-    UtilDTO utilDTO = new UtilDTO();
+    private UtilDTO utilDTO;
+
+    public UtilServiceImpl() {
+        this.utilDTO = new UtilDTO();
+    }
+
     @Override
     public LocalDate getLocalDate() {
         utilDTO.setToday(LocalDate.now());
@@ -15,8 +20,8 @@ public class UtilServiceImpl implements UtilService{
 
     @Override
     public LocalTime getLocalTime() {
-        utilDTO.setTimeNow(LocalTime.now());
-        return utilDTO.getTimeNow();
+        utilDTO.setCurrentTime(LocalTime.now());
+        return utilDTO.getCurrentTime();
     }
 
     @Override

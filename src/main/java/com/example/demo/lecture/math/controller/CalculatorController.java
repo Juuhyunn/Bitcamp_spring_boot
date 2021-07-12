@@ -8,10 +8,16 @@ import java.util.Scanner;
 
 public class CalculatorController {
     //인스턴스 변수 선언, "모델"을 가지고 있는 인스턴스 변수
-    CalculatorDTO calculator = new CalculatorDTO();
+    private CalculatorDTO calculator;
     //인터페이스 타입으로 인스턴스 변수 선언, "기능"을 가지고 있는 인스턴스 변수
-    CalculatorService calculatorService = new CalculatorServiceImpl();
-    Scanner scanner = new Scanner(System.in);
+    private CalculatorService calculatorService;
+    private Scanner scanner;
+
+    public CalculatorController(){
+        this.calculator = new CalculatorDTO();
+        this.calculatorService = new CalculatorServiceImpl();
+        this.scanner = new Scanner(System.in);
+    }
 
     public void calculate(){
         System.out.println("숫자 1?");
