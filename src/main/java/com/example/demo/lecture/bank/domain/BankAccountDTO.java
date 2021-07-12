@@ -1,14 +1,19 @@
 package com.example.demo.lecture.bank.domain;
 
 public class BankAccountDTO {
-    private int balance;
+    private String accountNumber;
+    private String name;
+    private int money;
+    private String bankName;
+    private String date;
+    private float interest;
     private int amount;
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setBalance(int money) {
+        this.money = money;
     }
     public int getBalance() {
-        return balance;
+        return money;
     }
     public void setAmount(int amount) {
         this.amount = amount;
@@ -16,15 +21,10 @@ public class BankAccountDTO {
     public int getAmount() {
         return amount;
     }
-    public void deposit(int amount) {
-        balance += amount;
-    }
-    public void withdraw(int amount) {
-        balance -= amount;
-    }
+
 
     @Override
     public String toString() {
-        return String.format("잔액은 %d입니다.",balance);
+        return String.format("잔액은 %d입니다.",money);
     }
 }
