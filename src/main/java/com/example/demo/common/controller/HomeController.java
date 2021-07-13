@@ -1,8 +1,15 @@
 package com.example.demo.common.controller;
 
 import com.example.demo.lecture.bank.controller.BankAccountController;
+import com.example.demo.lecture.bank.domain.BankAccountDTO;
+import com.example.demo.lecture.bank.service.BankAccountService;
+import com.example.demo.lecture.bank.service.BankAccountServiceImpl;
 import com.example.demo.lecture.bicycle.controller.BicycleController;
+import com.example.demo.lecture.bicycle.domain.BicycleDTO;
 import com.example.demo.lecture.dog.controller.DogController;
+import com.example.demo.lecture.dog.domian.DogDTO;
+import com.example.demo.lecture.dog.service.DogService;
+import com.example.demo.lecture.dog.service.DogServiceImpl;
 import com.example.demo.lecture.math.controller.CalculatorController;
 import com.example.demo.lecture.util.controller.UtilController;
 import com.example.demo.lecture.util.domain.UtilDTO;
@@ -13,45 +20,93 @@ public class HomeController {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        CalculatorController calculatorController = new CalculatorController();
         DogController dogController = new DogController();
         BicycleController bicycleController = new BicycleController();
-        UtilController utilController = new UtilController();
         BankAccountController bankAccountController = new BankAccountController();
         while (true) {
             System.out.println("\n=====================================================================");
             System.out.println(" [메뉴] 0. 종료\t1. 계산기\t2. 수열\t3. Dog\t4. Bicycle\t5. 오늘 날짜\t6. 은행");
             System.out.println("=====================================================================");
             switch (scanner.next()) {
-                case "0" :
+                case "0":
                     System.out.println("종료합니다.");
                     return;
-                case "1" :
+                case "1":
                     System.out.println("계산기가 실행됩니다");
-                    calculatorController.calculate();
+                    new CalculatorController().calculate();
                     break;
-                case "2" :
+                case "2":
                     System.out.println("수열이 실행됩니다.");
-                    calculatorController.sequence();
+                    new CalculatorController().sequence();
                     break;
-                case "3" :
+                case "3":
                     System.out.println("Dog를 실행합니다.");
-                    dogController.dog();
+                    DogDTO dog = new DogDTO();
+                    //위의 두 줄을 줄여서
+                    //DogController dogController = new DogController(new DogServiceImpl(dog));
+                    System.out.println("이름이 무엇입니까?");
+                    dog.setName(scanner.next());
+                    System.out.println("색깔은 무엇입니까?");
+                    dog.setColor(scanner.next());
+                    System.out.println("품종은 무엇입니까?");
+                    dog.setBreed(scanner.next());
+                    dogController.add(dog);
                     break;
-                case "4" :
+                case "33":
+                    dogController.show();
+                    break;
+                case "4":
                     System.out.println("자전거를 실행합니다.");
-                    bicycleController.bicycle();
+                    BicycleDTO bicycle = new BicycleDTO();
+                    System.out.println("현재 기어는 몇단입니까?");
+                    bicycle.setGear(scanner.nextInt());
+                    System.out.println("자전거 제조사는 어디입니까?");
+                    bicycle.setCompany(scanner.next());
+                    System.out.println("현재 속도는 몇입니까?");
+                    bicycle.setSpeed(scanner.nextDouble());
+                    bicycleController.add(bicycle);
                     break;
-                case "5" :
+                case "44":
+                    bicycleController.show();
+                    break;
+                case "5":
                     System.out.println("날짜를 실행합니다.");
-                    utilController.today();
+                    new UtilController().today();
                     break;
-                case "6" :
+                case "6":
                     System.out.println("은행을 실행합니다.");
-                    bankAccountController.bank();
+                    BankAccountDTO bankAccountDTO = new BankAccountDTO();
+                    while (true) {
+                        System.out.printf(" [ %s 메뉴 ] 0. 종료\t1. 입/출금\t2. 계좌 생성\t3. 계좌 삭제", bankAccountDTO.BANK_NAME);
+                        System.out.println();
+                        switch (scanner.next()) {
+                            case "0":
+                                System.out.println("은행을 종료합니다.");
+                                return;
+                            case "1":
+                                System.out.println("얼마를 입금하시겠습니까?");
+                                bankAccountDTO.setMoney(scanner.nextInt());
+                                bankAccountController.deposit(bankAccountDTO);
+                                System.out.println("잔고는 : " + bankAccountDTO.getMoney());
+                                System.out.println("얼마를 출금하시겠습니까?");
+                                bankAccountDTO.setMoney(scanner.nextInt());
+                                bankAccountController.withdraw(bankAccountDTO);
+                                System.out.println("잔고는 : " + bankAccountDTO.getBalance());
+                            case "2":
+                                System.out.println("이름이 무엇입니까?");
+                                bankAccountDTO.setName(scanner.next());
+                                bankAccountDTO.setAccountNumber(bankAccountController.createAccountNumber(bankAccountDTO));
+                                bankAccountController.add(bankAccountDTO);
+                                break;
+                        }
+                        break;
+                    }
                     break;
-
+                case "66":
+                    bankAccountController.show();
+                    break;
             }
         }
+
     }
 }

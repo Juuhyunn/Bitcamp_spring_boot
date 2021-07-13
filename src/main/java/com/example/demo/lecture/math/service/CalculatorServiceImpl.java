@@ -26,8 +26,7 @@ public class CalculatorServiceImpl implements CalculatorService{
 
     @Override
     public int remind(CalculatorDTO calculator) {
-        return calculator.getNum1()
-                % calculator.getNum2();
+        return calculator.getNum1() % calculator.getNum2();
     }
 
     @Override

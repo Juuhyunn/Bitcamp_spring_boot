@@ -27,8 +27,9 @@ public class BicycleDTO {
         return speed; //해당되는 변수가 하나밖에 없으니까 this는 생략이 가능하다.
     }
 
+
     @Override
     public String toString() {
-        return String.format("현재 자전거의 기어는 %d단이고, 제조사는 %s이고, 속도는 %f입니다.", getGear(), getCompany(),getSpeed());
+        return String.format("자전거의 기어는 %d단이고, 제조사는 %s이고, 속도는 %f입니다.", getGear(), getCompany(),getSpeed());
     }
 }

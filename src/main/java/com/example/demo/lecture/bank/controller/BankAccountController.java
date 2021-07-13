@@ -4,22 +4,47 @@ import com.example.demo.lecture.bank.domain.BankAccountDTO;
 import com.example.demo.lecture.bank.service.BankAccountService;
 import com.example.demo.lecture.bank.service.BankAccountServiceImpl;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class BankAccountController {
-    private Scanner scanner;
-    private BankAccountDTO bankAccountDTO;
+public class BankAccountController{
+
     private BankAccountService bankAccountService;
 
     public BankAccountController() {
-        this.scanner = new Scanner(System.in);
-        this.bankAccountDTO = new BankAccountDTO();
+
         this.bankAccountService = new BankAccountServiceImpl();
     }
+    public void add(BankAccountDTO bankAccountDTO) {
+        bankAccountService.add(bankAccountDTO);
+    }
 
+
+    public void show(){
+        System.out.println("현재 계좌 개수 : " + bankAccountService.count());
+        System.out.println(bankAccountService.show());
+    }
+    public String createAccountNumber(BankAccountDTO bankAccountDTO) {
+        bankAccountService.createAccountNumber(bankAccountDTO);
+        return bankAccountDTO.getAccountNumber();
+    }
+    public void checkMyMoney(BankAccountDTO bankAccountDTO) {
+        bankAccountService.checkMyMoney(bankAccountDTO);
+    }
+    public void deposit(BankAccountDTO bankAccountDTO) {
+        bankAccountService.deposit(bankAccountDTO);
+    }
+    public void withdraw(BankAccountDTO bankAccountDTO) {
+        bankAccountService.withdraw(bankAccountDTO);
+    }
+    public void dropAccountNumber(BankAccountDTO bankAccountDTO) {
+        bankAccountService.dropAccountNumber(bankAccountDTO);
+    }
+/*
     public void bank() {
         while (true) {
-            System.out.println(" [은행 메뉴] 0. 종료\t1. 입/출금\t2. 계좌 생성\t3. 계좌 삭제");
+            System.out.printf(" [ %s 메뉴 ] 0. 종료\t1. 입/출금\t2. 계좌 생성\t3. 계좌 삭제",bankAccountDTO.BANK_NAME);
+            System.out.println();
             switch (scanner.next()) {
                 case "0" :
                     System.out.println("은행을 종료합니다.");
@@ -54,4 +79,6 @@ public class BankAccountController {
         //bankAccount.withdraw(bankAccount.getAmount());
         //System.out.println(bankAccount.toString());
         }
+
+ */
 }

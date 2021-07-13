@@ -9,7 +9,13 @@ public class DogDTO { // 중괄호 안은 메모리 영역
     private String name;
     private String color;
     private String breed;
-    private String hungry;
+
+    @Override
+    public String toString() {
+        return String.format("\n이름은 %s이고, 색깔은 %s이고, 품종은 %s입니다.", name, color, breed);
+    }
+
+
 
     /*
 
@@ -47,10 +53,9 @@ public class DogDTO { // 중괄호 안은 메모리 영역
         return this.getHungry();
     }
 
-     */
-
     @Override
     public String toString() {
-        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s이고, 배고픔은 %s입니다.", name, color, breed, hungry);
+        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s입니다.", name, color, breed);
     }
+     */
 }

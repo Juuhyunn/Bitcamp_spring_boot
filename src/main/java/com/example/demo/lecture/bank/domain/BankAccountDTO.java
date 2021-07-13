@@ -1,10 +1,10 @@
 package com.example.demo.lecture.bank.domain;
 
 public class BankAccountDTO {
+    public static final String BANK_NAME = "비트은행";
     private String accountNumber;
     private String name;
     private int money;
-    public static final String BANK_NAME = "비트은행";
     private String date;
     private float interest;
     private int balance;
@@ -48,6 +48,7 @@ public class BankAccountDTO {
 
     @Override
     public String toString() {
-        return String.format("잔액은 %d입니다.",money);
+        return String.format("\n%s님의 계좌 번호 : %s\n잔액은 %d입니다.",name,accountNumber,money);
     }
 }
+
