@@ -9,6 +9,7 @@ public class UtilController {
     public UtilController(){
         this.utilService = new UtilServiceImpl();
     }
+
     public void today(){
         System.out.println("오늘의 날짜는?");
         System.out.println(utilService.todayAndCurrentTime());

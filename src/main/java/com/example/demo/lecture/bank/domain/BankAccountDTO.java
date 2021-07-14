@@ -48,7 +48,7 @@ public class BankAccountDTO {
 
     @Override
     public String toString() {
-        return String.format("\n%s님의 계좌 번호 : %s\n잔액은 %d입니다.",name,accountNumber,money);
+        return String.format("\n%s님의 계좌 번호 : %s\t잔액은 %d입니다.",name,accountNumber,money);
     }
 }
 

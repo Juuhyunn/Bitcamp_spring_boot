@@ -8,6 +8,7 @@ public interface BankAccountService {
     void add(BankAccountDTO bankAccount);
     int count();
     List<BankAccountDTO> show();
+    String[] findAllAccountNumber();
     //은행명은 변하지 않으니 상수로 정한다.
     //이름, 금액, 계좌번호 입력한 후 입금하고 잔액을 출력한다.
     //이름, 금액, 계좌번호 입력한 후 출금하고 잔액을 출력한다.

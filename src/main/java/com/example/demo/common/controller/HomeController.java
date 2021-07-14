@@ -75,9 +75,10 @@ public class HomeController {
                     break;
                 case "6":
                     System.out.println("은행을 실행합니다.");
-                    BankAccountDTO bankAccountDTO = new BankAccountDTO();
+                    BankAccountDTO account = null;
                     while (true) {
-                        System.out.printf(" [ %s 메뉴 ] 0. 종료\t1. 입/출금\t2. 계좌 생성\t3. 계좌 삭제", bankAccountDTO.BANK_NAME);
+                        account = new BankAccountDTO();
+                        System.out.printf(" [ %s 메뉴 ] 0. 종료\t1. 입/출금\t2. 계좌 생성\t3. 계좌 번호 목록", account.BANK_NAME);
                         System.out.println();
                         switch (scanner.next()) {
                             case "0":
@@ -85,18 +86,24 @@ public class HomeController {
                                 return;
                             case "1":
                                 System.out.println("얼마를 입금하시겠습니까?");
-                                bankAccountDTO.setMoney(scanner.nextInt());
-                                bankAccountController.deposit(bankAccountDTO);
-                                System.out.println("잔고는 : " + bankAccountDTO.getMoney());
+                                account.setMoney(scanner.nextInt());
+                                bankAccountController.deposit(account);
+                                System.out.println("잔고는 : " + account.getMoney());
                                 System.out.println("얼마를 출금하시겠습니까?");
-                                bankAccountDTO.setMoney(scanner.nextInt());
-                                bankAccountController.withdraw(bankAccountDTO);
-                                System.out.println("잔고는 : " + bankAccountDTO.getBalance());
+                                account.setMoney(scanner.nextInt());
+                                bankAccountController.withdraw(account);
+                                System.out.println("잔고는 : " + account.getBalance());
                             case "2":
                                 System.out.println("이름이 무엇입니까?");
-                                bankAccountDTO.setName(scanner.next());
-                                bankAccountDTO.setAccountNumber(bankAccountController.createAccountNumber(bankAccountDTO));
-                                bankAccountController.add(bankAccountDTO);
+                                account.setName(scanner.next());
+                                account.setAccountNumber(bankAccountController.createAccountNumber(account));
+                                bankAccountController.add(account);
+                                break;
+                            case "3" :
+                                System.out.println("현재 계좌 목록은 다음과 같습니다.");
+                                for (String s : bankAccountController.findAllAccountNumber()) {
+                                    System.out.println(s + "\n");
+                                }
                                 break;
                         }
                         break;

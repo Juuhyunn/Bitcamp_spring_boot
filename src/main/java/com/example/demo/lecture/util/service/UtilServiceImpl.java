@@ -29,6 +29,19 @@ public class UtilServiceImpl implements UtilService{
         return String.format("%s\t%s", getLocalDate(),getLocalTime());
     }
 
+    @Override
+    public String randomNumbers(int digits, boolean allowZeroValue) {
+        //math.random() --> 클래스 메소드
+        //Random random = new Random(); : 한 번만 쓴다. 한 번만 사용할 때 효율적이다.
+        //random.nextInt(1000); 인스턴스 메소드 : 여러 번 쓸 수 있다. 사용할 때 마다 메모리 차지함.
+        String result = "", first = "";
+        first += allowZeroValue ? ((int) (Math.random() * 10)) : ((int)(Math.random() * 9 + 1));
+        for (int i = 0; i<digits - 1 ; i++) {
+            result += (int)(Math.random() * 10) ;
+        }
+        return first + result;//리턴은 위에 있을 수록 성능이 좋다.
+    }
+
     /*
     @Override
     public LocalDate getLocalDate(UtilDTO utilDTO) {

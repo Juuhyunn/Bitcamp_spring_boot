@@ -9,6 +9,7 @@ public interface UtilService {
     LocalDate getLocalDate();
     LocalTime getLocalTime();
     String todayAndCurrentTime();
+    String randomNumbers(int digits, boolean allowZeroValue);
     //LocalDate getLocalDate(UtilDTO utilDTO);
     //LocalTime getLocalTime(UtilDTO utilDTO);
 }

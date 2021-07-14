@@ -40,6 +40,10 @@ public class BankAccountController{
     public void dropAccountNumber(BankAccountDTO bankAccountDTO) {
         bankAccountService.dropAccountNumber(bankAccountDTO);
     }
+
+    public String[] findAllAccountNumber() {
+        return bankAccountService.findAllAccountNumber();
+    }
 /*
     public void bank() {
         while (true) {
