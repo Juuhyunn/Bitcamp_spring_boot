@@ -4,10 +4,10 @@ public class BankAccountDTO {
     public static final String BANK_NAME = "비트은행";
     private String accountNumber;
     private String name;
-    private int money;
+    private String money;
     private String date;
-    private float interest;
-    private int balance;
+    private String interest;
+    private String balance;
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
@@ -21,10 +21,10 @@ public class BankAccountDTO {
     public String getName(){
         return name;
     }
-    public void setMoney(int money) {
+    public void setMoney(String money) {
         this.money = money;
     }
-    public int getMoney() {
+    public String getMoney() {
         return money;
     }
     public void setDate(String date) {
@@ -33,16 +33,16 @@ public class BankAccountDTO {
     public String getDate() {
         return date;
     }
-    public void setInterest(float interest) {
+    public void setInterest(String interest) {
         this.interest = interest;
     }
-    public float getInterest() {
+    public String getInterest() {
         return interest;
     }
-    public void setBalance(int balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
-    public int getBalance() {
+    public String getBalance() {
         return balance;
     }
 

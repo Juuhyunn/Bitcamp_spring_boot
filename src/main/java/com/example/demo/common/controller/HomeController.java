@@ -41,6 +41,8 @@ public class HomeController {
                     break;
                 case "3":
                     System.out.println("Dog를 실행합니다.");
+                    //아래처럼 코딩하면 쓸모없는 쓰레기가 생기니까
+                    //위처럼 컨트롤러 호출하는게 낫다!
                     DogDTO dog = new DogDTO();
                     //위의 두 줄을 줄여서
                     //DogController dogController = new DogController(new DogServiceImpl(dog));
@@ -86,11 +88,11 @@ public class HomeController {
                                 return;
                             case "1":
                                 System.out.println("얼마를 입금하시겠습니까?");
-                                account.setMoney(scanner.nextInt());
+                                account.setMoney(scanner.next());
                                 bankAccountController.deposit(account);
                                 System.out.println("잔고는 : " + account.getMoney());
                                 System.out.println("얼마를 출금하시겠습니까?");
-                                account.setMoney(scanner.nextInt());
+                                account.setMoney(scanner.next());
                                 bankAccountController.withdraw(account);
                                 System.out.println("잔고는 : " + account.getBalance());
                             case "2":

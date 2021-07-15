@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DogServiceImpl implements DogService {
-    private DogDTO dog;
-    private List<DogDTO> dogs;
+    private final DogDTO dog;
+    private final List<DogDTO> dogs;
 
     public DogServiceImpl() {
         this.dog = new DogDTO();

@@ -16,8 +16,8 @@ public interface BankAccountService {
     //이름을 입력한 후 계좌를 생성한다.
     //이름, 계좌번호를 입력한 후 계좌를 해지한다.
     public void createAccountNumber(BankAccountDTO bankAccountDTO);
-    public int checkMyMoney(BankAccountDTO bankAccountDTO);
-    public int deposit(BankAccountDTO bankAccountDTO);
-    public int withdraw(BankAccountDTO bankAccountDTO);
+    public String checkMyMoney(BankAccountDTO bankAccountDTO);
+    public String deposit(BankAccountDTO bankAccountDTO);
+    public String withdraw(BankAccountDTO bankAccountDTO);
     public void dropAccountNumber(BankAccountDTO bankAccountDTO);
 }

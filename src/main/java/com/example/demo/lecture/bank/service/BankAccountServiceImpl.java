@@ -4,6 +4,7 @@ import com.example.demo.lecture.bank.domain.BankAccountDTO;
 import com.example.demo.lecture.bicycle.domain.BicycleDTO;
 import com.example.demo.lecture.bicycle.service.BicycleService;
 import com.example.demo.lecture.dog.domian.DogDTO;
+import com.example.demo.lecture.util.service.LambdaUtils;
 import com.example.demo.lecture.util.service.UtilService;
 import com.example.demo.lecture.util.service.UtilServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BankAccountServiceImpl implements BankAccountService{
+public class BankAccountServiceImpl extends LambdaUtils implements BankAccountService{
     private BankAccountDTO bankAccountDTO;
     private Random random;
     private ArrayList<BankAccountDTO> banks;
@@ -56,7 +57,7 @@ public class BankAccountServiceImpl implements BankAccountService{
         UtilService utilService = new UtilServiceImpl();
         String randomNumber = "";
         //String first = "";
-        randomNumber += utilService.randomNumbers(4,false)+"-?";
+        randomNumber += utilService.randomNumbers(4,false);
         for (int i = 0; i < 3; i++) {
             randomNumber += utilService.randomNumbers(4,true);
             //first = num.substring(0, 1);
@@ -79,19 +80,19 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public int checkMyMoney(BankAccountDTO bankAccountDTO) {
+    public String checkMyMoney(BankAccountDTO bankAccountDTO) {
         return bankAccountDTO.getMoney();
     }
 
     @Override
-    public int deposit(BankAccountDTO bankAccountDTO) {
+    public String deposit(BankAccountDTO bankAccountDTO) {
         bankAccountDTO.setBalance(bankAccountDTO.getBalance() + bankAccountDTO.getMoney());
         return bankAccountDTO.getBalance();
     }
 
     @Override
-    public int withdraw(BankAccountDTO bankAccountDTO) {
-        bankAccountDTO.setBalance(bankAccountDTO.getBalance() - bankAccountDTO.getMoney());
+    public String withdraw(BankAccountDTO bankAccountDTO) {
+        //bankAccountDTO.setBalance((String)((int)bankAccountDTO.getBalance() - (int)bankAccountDTO.getMoney()));
         return bankAccountDTO.getBalance();
     }
 
