@@ -30,6 +30,6 @@ public class BicycleDTO {
 
     @Override
     public String toString() {
-        return String.format("자전거의 기어는 %d단이고, 제조사는 %s이고, 속도는 %f입니다.", getGear(), getCompany(),getSpeed());
+        return String.format("\n자전거의 기어는 %d단이고, 제조사는 %s이고, 속도는 %f입니다.", getGear(), getCompany(),getSpeed());
     }
 }

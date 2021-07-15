@@ -25,8 +25,6 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
         banks = new ArrayList<>();
         utilService = new UtilServiceImpl();
     }
-
-
     @Override
     public void add(BankAccountDTO bankAccount) {
         banks.add(bankAccount);
@@ -50,14 +48,12 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
         }
         return accountNumbers;
     }
-
-
     @Override
     public void createAccountNumber(BankAccountDTO bankAccountDTO) {
         UtilService utilService = new UtilServiceImpl();
         String randomNumber = "";
         //String first = "";
-        randomNumber += utilService.randomNumbers(4,false);
+        randomNumber += utilService.randomNumbers(4,false) + "-";
         for (int i = 0; i < 3; i++) {
             randomNumber += utilService.randomNumbers(4,true);
             //first = num.substring(0, 1);

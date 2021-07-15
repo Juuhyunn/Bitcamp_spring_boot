@@ -26,7 +26,6 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public List<?> show() {
-
         return dogs;
     }
 

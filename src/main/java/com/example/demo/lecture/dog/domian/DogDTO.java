@@ -12,11 +12,8 @@ public class DogDTO { // 중괄호 안은 메모리 영역
 
     @Override
     public String toString() {
-        return String.format("\n이름은 %s이고, 색깔은 %s이고, 품종은 %s입니다.", name, color, breed);
+        return String.format("이름은 %s이고, 색깔은 %s이고, 품종은 %s입니다.", name, color, breed);
     }
-
-
-
     /*
 
     //멤버 함수

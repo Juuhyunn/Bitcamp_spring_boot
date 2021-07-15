@@ -3,10 +3,12 @@ package com.example.demo.lecture.math.controller;
 import com.example.demo.lecture.math.domain.CalculatorDTO;
 import com.example.demo.lecture.math.service.CalculatorService;
 import com.example.demo.lecture.math.service.CalculatorServiceImpl;
+import com.example.demo.lecture.util.service.LambdaUtils;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class CalculatorController {
+public class CalculatorController extends LambdaUtils {
     //인스턴스 변수 선언, "모델"을 가지고 있는 인스턴스 변수
     private CalculatorDTO calculator;
     //인터페이스 타입으로 인스턴스 변수 선언, "기능"을 가지고 있는 인스턴스 변수
@@ -20,11 +22,11 @@ public class CalculatorController {
     }
 
     public void calculate(){
-        System.out.println("숫자 1?");
+        print.accept("숫자 1?\n");
         calculator.setNum1(scanner.nextInt());
-        System.out.println("연산자?");
+        print.accept("연산자?\n");
         calculator.setOpcode(scanner.next());
-        System.out.println("숫자 2?");
+        print.accept("숫자 2?\n");
         calculator.setNum2(scanner.nextInt());
         int result = 0;
         switch (calculator.getOpcode()) {
@@ -44,33 +46,18 @@ public class CalculatorController {
                 result = calculatorService.remind(calculator);
                 break;
         }
-        //System.out.println(calculator.toString() + result);
-        System.out.printf("%d %s %d = %d\n", calculator.getNum1(), calculator.getOpcode(), calculator.getNum2(),result);
-    }
+        print.accept(calculator.getNum1() + " " + calculator.getOpcode() + " " + calculator.getNum2() + " = " +result); }
+
     public void sequence(){
-        System.out.println("수열의 시작 ?");
+        print.accept("수열의 시작 ?\n");
         calculator.setNum1(scanner.nextInt());
-        System.out.println("수열의 마지막 ?");
+        print.accept("수열의 마지막 ?\n");
         calculator.setNum2(scanner.nextInt() + 1);
         int[] arr = calculatorService.sequence(calculator);
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
+            print.accept(arr[i] + "\t");
         }
-        System.out.println();
+        print.accept("\n");
 
-    }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("[메뉴] 0. 종료 1. 계산기 2. 수열");
-            switch (scanner.next()) {
-                case "0" :
-                    return;
-                case "1" :
-                    break;
-                case "2" :
-                    break;
-            }
-        }
     }
 }
