@@ -1,5 +1,7 @@
 package com.example.demo.lecture.bank.domain;
 
+import com.example.demo.lecture.util.service.UtilServiceImpl;
+
 public class BankAccountDTO {
     public static final String BANK_NAME = "비트은행";
     private String accountNumber;
@@ -48,7 +50,7 @@ public class BankAccountDTO {
 
     @Override
     public String toString() {
-        return String.format("\n%s님의 계좌 번호 : %s\t잔액은 %d입니다.",name,accountNumber,money);
+        return String.format("%s님의 계좌 : %s \t 잔액 : %s \t 거래 일자 : %s \t 이자율 : %s\n",name,accountNumber,balance,date, interest);
     }
 }
 

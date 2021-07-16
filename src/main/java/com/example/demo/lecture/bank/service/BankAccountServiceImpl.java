@@ -36,12 +36,13 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public List<BankAccountDTO> show() {
+    public List<? extends BankAccountDTO> show() {
         return banks;
     }
 
     @Override
     public String[] findAllAccountNumber() {
+        int count = count();
         String[] accountNumbers = new String[count()]; //this는 생략할 수 있쥐
         for (int i = 0; i < count() ;i++){
             accountNumbers[i] = banks.get(i).getAccountNumber();//??
@@ -51,6 +52,7 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     @Override
     public void createAccountNumber(BankAccountDTO bankAccountDTO) {
         UtilService utilService = new UtilServiceImpl();
+        bankAccountDTO.setDate(utilService.todayAndCurrentTime());
         String randomNumber = "";
         //String first = "";
         randomNumber += utilService.randomNumbers(4,false) + "-";
@@ -81,15 +83,55 @@ public class BankAccountServiceImpl extends LambdaUtils implements BankAccountSe
     }
 
     @Override
-    public String deposit(BankAccountDTO bankAccountDTO) {
-        bankAccountDTO.setBalance(bankAccountDTO.getBalance() + bankAccountDTO.getMoney());
-        return bankAccountDTO.getBalance();
+    public BankAccountDTO findAccountByAccountNumber(String accountNumber) {
+        System.out.println("실행은 됐어?");
+        BankAccountDTO bankAccount = new BankAccountDTO();
+        for (BankAccountDTO b : banks) {
+            if(accountNumber.equals(b.getAccountNumber())) {
+                bankAccount = b;
+                break;
+            }
+        }
+        print.accept("체크는 완료");
+        return bankAccount;
     }
 
     @Override
-    public String withdraw(BankAccountDTO bankAccountDTO) {
+    public String findBalanceByAccountNumber(String accountNumber) {
+        String balance = "";
+        for(BankAccountDTO b : banks) {
+            balance = accountNumber.equals(b.getAccountNumber()) ? b.getBalance() : "0";
+        }
+        return balance;
+    }
+
+    @Override
+    public void deposit(BankAccountDTO bankAccountDTO) {
+        for (BankAccountDTO b : banks) {
+            if(bankAccountDTO.getAccountNumber().equals(b.getAccountNumber())) {
+                print.accept("??");
+                System.out.println(b.getAccountNumber());
+                System.out.println(b.getBalance());
+                System.out.println(strToInt.apply(b.getBalance()));
+                int a = strToInt.apply(b.getBalance());
+                print.accept(string.apply(a));
+                //얘가 널이 나와?????????
+
+                print.accept(string.apply(strToInt.apply(b.getBalance())));
+                int balance = strToInt.apply(b.getBalance());
+                b.setBalance(string.apply(balance + strToInt.apply(bankAccountDTO.getMoney())));
+                print.accept("입금 후 정보 : " + b);
+                break;
+                } else {
+                print.accept("잘못된 계좌 번호 입니다.");
+            }
+        }
+    }
+
+    @Override
+    public void withdraw(BankAccountDTO bankAccountDTO) {
         //bankAccountDTO.setBalance((String)((int)bankAccountDTO.getBalance() - (int)bankAccountDTO.getMoney()));
-        return bankAccountDTO.getBalance();
+        //return bankAccountDTO.getBalance();
     }
 
     @Override

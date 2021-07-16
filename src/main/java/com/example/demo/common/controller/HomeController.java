@@ -3,6 +3,7 @@ package com.example.demo.common.controller;
 import com.example.demo.lecture.bank.controller.BankAccountController;
 import com.example.demo.lecture.bicycle.controller.BicycleController;
 import com.example.demo.lecture.dog.controller.DogController;
+import com.example.demo.lecture.himart.controller.HimartController;
 import com.example.demo.lecture.math.controller.CalculatorController;
 import com.example.demo.lecture.util.controller.UtilController;
 import com.example.demo.lecture.util.service.LambdaUtils;
@@ -18,7 +19,7 @@ public class HomeController extends LambdaUtils {
         BankAccountController bankAccountController = new BankAccountController();
         while (true) {
             print.accept("\n==========================================================================");
-            print.accept("\n[메뉴] 0. 종료\t1. 계산기\t2. 수열\t3. Dog\t4. Bicycle\t5. 오늘 날짜\t6. 은행");
+            print.accept("\n[Navigation] 0. 종료\t1. 계산기\t2. 수열\t3. Dog\t4. Bicycle\t5. 하이마트\t6. 은행\t");
             print.accept("\n==========================================================================\n");
             switch (scanner.next()) {
                 case "0":
@@ -47,18 +48,14 @@ public class HomeController extends LambdaUtils {
                     bicycleController.show();
                     break;
                 case "5":
-                    print.accept("\n날짜를 실행합니다.\n");
-                    new UtilController().today();
+                    print.accept("\n하이마트 메뉴를 실행합니다.\n");
+                    new HimartController().himart();
                     break;
                 case "6":
                     print.accept("\n은행을 실행합니다.\n");
                     new BankAccountController().bank();
                     break;
-                case "66":
-                    bankAccountController.show();
-                    break;
             }
         }
-
     }
 }

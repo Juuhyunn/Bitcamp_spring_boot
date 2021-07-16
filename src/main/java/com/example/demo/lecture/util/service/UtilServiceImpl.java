@@ -1,5 +1,6 @@
 package com.example.demo.lecture.util.service;
 
+import com.example.demo.lecture.bank.domain.BankAccountDTO;
 import com.example.demo.lecture.util.domain.UtilDTO;
 
 import java.time.LocalDate;
